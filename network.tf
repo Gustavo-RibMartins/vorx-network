@@ -46,6 +46,17 @@ resource "aws_subnet" "vorx-subnet-priv-1b" {
   }
 }
 
+resource "aws_internet_gateway" "gw" {
+  vpc_id = aws_vpc.vorx-vpc-prod.id
+
+  tags = {
+    Name = "igw-prod-vorx-vpc"
+  }
+}
+
+
+
+
 output "vpc_vorx_prod_id" {
   value = aws_vpc.vorx-vpc-prod.id
 }
@@ -55,17 +66,17 @@ output "vpc_vorx_prod_arn" {
 }
 
 output "vorx_prod_subnet_pub-1a" {
-value = aws_subnet.vorx-subnet-pub-1a.id
+  value = aws_subnet.vorx-subnet-pub-1a.id
 }
 
 output "vorx_prod_subnet_priv-1a" {
-value = aws_subnet.vorx-subnet-priv-1a.id
+  value = aws_subnet.vorx-subnet-priv-1a.id
 }
 
 output "vorx_prod_subnet_pub-1b" {
-value = aws_subnet.vorx-subnet-pub-1b.id
+  value = aws_subnet.vorx-subnet-pub-1b.id
 }
 
 output "vorx_prod_subnet_priv-1b" {
-value = aws_subnet.vorx-subnet-priv-1b.id
+  value = aws_subnet.vorx-subnet-priv-1b.id
 }
